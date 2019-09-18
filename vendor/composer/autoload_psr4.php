@@ -7,8 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'think\\composer\\' => array($vendorDir . '/topthink/think-installer/src'),
-    'think\\captcha\\' => array($vendorDir . '/topthink/think-captcha/src'),
-    'app\\' => array($baseDir . '/application'),
+    'library\\' => array($vendorDir . '/zoujingli/think-library/src'),
     'WePay\\' => array($vendorDir . '/zoujingli/wechat-developer/WePay'),
     'WeOpen\\' => array($vendorDir . '/zoujingli/weopen-developer/WeOpen'),
     'WeMini\\' => array($vendorDir . '/zoujingli/wechat-developer/WeMini', $vendorDir . '/zoujingli/weopen-developer/WeMini'),
@@ -17,4 +16,5 @@ return array(
     'Qiniu\\' => array($vendorDir . '/qiniu/php-sdk/src/Qiniu'),
     'OSS\\' => array($vendorDir . '/aliyuncs/oss-sdk-php/src/OSS'),
     'Endroid\\QrCode\\' => array($vendorDir . '/endroid/qr-code/src'),
+    'AliPay\\' => array($vendorDir . '/zoujingli/wechat-developer/AliPay'),
 );

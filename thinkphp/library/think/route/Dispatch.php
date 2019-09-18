@@ -11,6 +11,7 @@
 
 namespace think\route;
 
+use think\App;
 use think\Container;
 use think\exception\ValidateException;
 use think\Request;
@@ -180,9 +181,10 @@ abstract class Dispatch
 
             $response = Response::create($data, $type);
         } else {
-            $data     = ob_get_clean();
-            $content  = false === $data ? '' : $data;
-            $status   = '' === $content && $this->request->isAjax() ? 204 : 200;
+            $data    = ob_get_clean();
+            $content = false === $data ? '' : $data;
+            $status  = '' === $content && $this->request->isJson() ? 204 : 200;
+
             $response = Response::create($content, '', $status);
         }
 
@@ -273,7 +275,8 @@ abstract class Dispatch
             $tag    = null;
         }
 
-        $this->request->cache($key, $expire, $tag);
+        $cache = $this->request->cache($key, $expire, $tag);
+        $this->app->setResponseCache($cache);
     }
 
     /**
